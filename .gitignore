@@ -1,6 +1,6 @@
 credentials.py
-dataset/hot/*
-dataset/not/*
+dataset/hot/*.jpg
+dataset/not/*.jpg
 true/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,git
