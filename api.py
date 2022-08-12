@@ -95,9 +95,3 @@ async def check(image: Image):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=503, detail="Server Runtime Error") from e
-
-
-@app.get("/sleep")
-async def sleep(secs: float = 1):
-    time.sleep(secs)
-    return {"message": "OK"}
