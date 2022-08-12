@@ -81,6 +81,7 @@ async def check(image: Image):
     try:
         image_file = download_image(image.url)
         test = img_to_feature_vec(image_file, 'hot')
+        print(test)
         if test is None:
             return Response(code="ERROR", result="FACE NOT FOUND")
 
@@ -94,3 +95,9 @@ async def check(image: Image):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=503, detail="Server Runtime Error") from e
+
+
+@app.get("/sleep")
+async def sleep(secs: int):
+    time.sleep(secs)
+    return {"message": "OK"}
