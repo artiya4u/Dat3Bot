@@ -98,6 +98,6 @@ async def check(image: Image):
 
 
 @app.get("/sleep")
-async def sleep(secs: int):
+async def sleep(secs: float = 1):
     time.sleep(secs)
     return {"message": "OK"}

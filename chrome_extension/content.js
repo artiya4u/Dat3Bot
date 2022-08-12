@@ -106,7 +106,7 @@ async function swipeLoop() {
                 for (const photo of photos) {
                     allPhotos.add(photo);
                 }
-                await sleep(1);
+                await sleep(0.5 + Math.random());
                 nextPhoto();
             }
             console.log(allPhotos.size);
@@ -129,7 +129,7 @@ async function swipeLoop() {
                 swipe('pass');
             }
         }
-        await sleep(1);
+        await sleep(0.5 + Math.random());
     }
 }
 
