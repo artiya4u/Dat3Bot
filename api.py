@@ -81,17 +81,22 @@ async def check(image: Image):
     try:
         image_file = download_image(image.url)
         test = img_to_feature_vec(image_file, 'hot')
-        print(test)
         if test is None:
-            return Response(code="ERROR", result="FACE NOT FOUND")
+            return Response(code="ERROR", result="Extract features error")
 
-        result = clf.predict([test[:-1]])[0]
+        result = clf.predict([test[:-1]])
+        if result is None:
+            return Response(code="ERROR", result="Can't predict")
+
+        result = result[0]
         if result == 1:
+            print('HOT', test)
             shutil.move(image_file, f'./dataset/hot/{time.time_ns()}.jpg')
             return Response(code="OK", result="HOT")
         else:
+            print('NOT', test)
             shutil.move(image_file, f'./dataset/not/{time.time_ns()}.jpg')
             return Response(code="OK", result="NOT")
     except Exception as e:
         print(e)
-        raise HTTPException(status_code=503, detail="Server Runtime Error") from e
+        raise HTTPException(status_code=503, detail=str(e))

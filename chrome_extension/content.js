@@ -85,22 +85,13 @@ async function findPhotos() {
     }
 }
 
-async function sleep(secs) {
-    let requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-
-    return fetch(BASE_API_URL + '/sleep?secs=' + secs, requestOptions).then(response => response.json());
-}
-
 const psleep = async (secs) => new Promise(resolve => setTimeout(resolve, secs * 1000));
 
 async function swipeLoop() {
     while (true) {
-        if (Math.random() >= 0.99) {
+        if (Math.random() >= 0.9969) {
             // reload
-            // location.reload();
+            location.reload();
         } else {
             const allPhotos = new Set();
             for (let i = 0; i < 8; i++) { // Browse photos
@@ -108,7 +99,7 @@ async function swipeLoop() {
                 for (const photo of photos) {
                     allPhotos.add(photo);
                 }
-                await psleep(0.5 + Math.random());
+                await psleep(0.3 + Math.random());
                 nextPhoto();
             }
             console.log(allPhotos.size);
