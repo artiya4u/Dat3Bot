@@ -115,7 +115,7 @@ async function swipeLoop() {
                     if (result.code === 'OK') {
                         if (result.result === 'HOT') {
                             console.log('😍 HOT!', photo);
-                            action = 'love';
+                            action = 'like';
                             break;
                         }
                     }
