@@ -95,36 +95,34 @@ async function swipeLoop() {
         if (Math.random() >= 0.99) {
             location.reload();
         } else {
-            const allPhotos = new Set();
-            for (let i = 0; i < 8; i++) { // Browse photos
-                let photos = await findPhotos();
-                for (const photo of photos) {
-                    allPhotos.add(photo);
-                }
-                if (i > 3 && (i - allPhotos.size) >= 1) { // No more photos
-                    break;
-                }
-                await sleep(0.3 + Math.random());
-                nextPhoto();
-            }
-            console.log(allPhotos.size);
-            let action = 'pass';
-            for (const photo of allPhotos) {
-                let result = await requestCheckImage(photo);
-                if (result.code === 'OK') {
-                    if (result.result === 'HOT') {
-                        console.log('😍 HOT!', photo);
-                        action = 'like';
+            try {
+                const allPhotos = new Set();
+                for (let i = 0; i < 8; i++) { // Browse photos
+                    let photos = await findPhotos();
+                    for (const photo of photos) {
+                        allPhotos.add(photo);
+                    }
+                    if (i > 3 && (i - allPhotos.size) >= 1) { // No more photos
                         break;
                     }
+                    await sleep(0.3 + Math.random());
+                    nextPhoto();
                 }
-            }
-            if (action === 'like') {
-                console.log('😍 HOT!');
-                swipe('pass');
-            } else {
-                console.log('😵 NOT!');
-                swipe('pass');
+                console.log(allPhotos.size);
+                let action = 'pass';
+                for (const photo of allPhotos) {
+                    let result = await requestCheckImage(photo);
+                    if (result.code === 'OK') {
+                        if (result.result === 'HOT') {
+                            console.log('😍 HOT!', photo);
+                            action = 'like';
+                            break;
+                        }
+                    }
+                }
+                swipe(action);
+            } catch (e) {
+                console.log(e);
             }
         }
         await sleep(0.5 + Math.random());

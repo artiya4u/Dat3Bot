@@ -2,9 +2,9 @@ FROM tensorflow/tensorflow:latest
 
 WORKDIR /code
 
-RUN apt update
-RUN apt install -y cmake
-RUN apt install -y python3-opencv
+RUN apt-get update
+RUN apt-get install -y cmake
+RUN apt-get install -y python3-opencv
 RUN pip install opencv-python
 
 COPY ./requirements.txt /code/requirements.txt

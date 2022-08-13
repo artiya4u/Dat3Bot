@@ -6,7 +6,7 @@ face-alignment
 dlib
 opencv-python
 matplotlib
-numpy
+numpy==1.22
 scikit-image
 plotly
 requests
@@ -16,5 +16,4 @@ pandas
 sklearn
 scikit-learn
 tqdm
-numba
 torch
