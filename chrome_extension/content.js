@@ -7,7 +7,7 @@ function swipe(action) {
     if (bnts.length !== 5) {
         // Not found buttons.
         bnts[bnts.length - 1].click();
-        // location.reload();
+        location.reload();
         return;
     }
     if (action === 'super-like') {
@@ -30,7 +30,7 @@ function swipe(action) {
 
     // If popup
     setTimeout(function () {
-        let bntsPopup = document.querySelectorAll('button.button');
+        let bntsPopup = document.querySelectorAll('span.Hidden');
         if (bntsPopup.length > 5) {
             // Close Popup -- No, Thanks
             bntsPopup[bntsPopup.length - 1].click();
