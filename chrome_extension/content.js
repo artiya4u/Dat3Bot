@@ -118,6 +118,7 @@ async function swipeLoop() {
                     nextPhoto();
                 }
                 let action = 'pass';
+                console.log('Photos Count', allPhotos.size);
                 for (const photo of allPhotos) {
                     let result = await requestCheckImage(photo);
                     if (result.code === 'OK') {
@@ -128,7 +129,6 @@ async function swipeLoop() {
                         }
                     }
                 }
-                console.log('Photos Count', allPhotos.size);
                 if (allPhotos.size > 0) { // Must have photos to swipe
                     swipe(action);
                 }
