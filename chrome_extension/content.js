@@ -1,6 +1,6 @@
-const BASE_API_URL = "http://127.0.0.1:8000";
+// const BASE_API_URL = "http://127.0.0.1:8000";
 // Or
-// const BASE_API_URL = "http://vision.bootlegsoft.com";
+const BASE_API_URL = "https://vision.bootlegsoft.com";
 
 function swipe(action) {
     let bnts = document.querySelectorAll('button.button');
