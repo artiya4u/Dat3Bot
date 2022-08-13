@@ -37,7 +37,6 @@ function swipe(action) {
         let bntsPopup = document.querySelectorAll('button.button');
         for (const bntPop of bntsPopup) {
             // Close Popup -- No, Thanks
-            console.log(bntPop.innerText);
             if (bntPop.innerText === 'NO THANKS') {
                 console.log('❌ Close Popup');
                 bntPop.click();

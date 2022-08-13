@@ -13,7 +13,7 @@ from preprocess import img_to_feature_vec
 app = FastAPI()
 
 origins = [
-    "https://tinder.com",
+    "*",
 ]
 
 app.add_middleware(
