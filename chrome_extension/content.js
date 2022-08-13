@@ -122,7 +122,9 @@ async function swipeLoop() {
                         }
                     }
                 }
-                swipe(action);
+                if (allPhotos.size > 0) { // Must have photos to swipe
+                    swipe(action);
+                }
             } catch (e) {
                 console.log(e);
                 location.reload();
