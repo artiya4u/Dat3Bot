@@ -31,7 +31,7 @@ def extract_img_metadata(img_path) -> dict:
 
 def extract_facial_landmarks(img_path) -> pd.DataFrame:
     fa = face_alignment.FaceAlignment(
-        face_alignment.LandmarksType._3D, flip_input=False)
+        face_alignment.LandmarksType._3D, flip_input=False, device='cpu')
 
     img = io.imread(img_path)
     preds = np.array(fa.get_landmarks(img)[0])

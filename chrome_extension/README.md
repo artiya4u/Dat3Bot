@@ -11,9 +11,9 @@ Chrome extension for Tinder automatic swipe right now working with `Dat3Bot` mod
 
 ## Getting Start
 
-- Run the API on port 8000 using command `python -m uvicorn api:app --reload --port 8000`
+- Run the API on port 8000 using command `python -m uvicorn api:app --reload --host 0.0.0.0 --port 8000`
   or build a docker image as `docker build --tag dat3bot:latest .` and run it
-  as `docker run -d -p 8000:8000 dat3bot:latest`. First request will take a while to load the model weights.
+  as `docker run -d -it -p 8000:8000 dat3bot:latest`. First request will take a while to load the model weights.
   Can try the API with curl:
 
 ```shell
