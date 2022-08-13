@@ -6,6 +6,7 @@ function swipe(action) {
     let bnts = document.querySelectorAll('button.button');
     if (bnts.length !== 5) {
         // Not found buttons.
+        location.reload();
         return;
     }
     if (action === 'super-like') {
@@ -123,6 +124,7 @@ async function swipeLoop() {
                 swipe(action);
             } catch (e) {
                 console.log(e);
+                location.reload();
             }
         }
         await sleep(0.5 + Math.random());
