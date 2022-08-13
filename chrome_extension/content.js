@@ -6,7 +6,8 @@ function swipe(action) {
     let bnts = document.querySelectorAll('button.button');
     if (bnts.length !== 5) {
         // Not found buttons.
-        location.reload();
+        bnts[bnts.length - 1].click();
+        // location.reload();
         return;
     }
     if (action === 'super-like') {
