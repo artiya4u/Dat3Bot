@@ -85,12 +85,12 @@ async function findPhotos() {
     }
 }
 
-const psleep = async (secs) => new Promise(resolve => setTimeout(resolve, secs * 1000));
+const sleep = async (secs) => new Promise(resolve => setTimeout(resolve, secs * 1000));
+
 
 async function swipeLoop() {
     while (true) {
-        if (Math.random() >= 0.9969) {
-            // reload
+        if (Math.random() >= 0.99) {
             location.reload();
         } else {
             const allPhotos = new Set();
@@ -99,7 +99,10 @@ async function swipeLoop() {
                 for (const photo of photos) {
                     allPhotos.add(photo);
                 }
-                await psleep(0.3 + Math.random());
+                if (i > 3 && (i - allPhotos.size) >= 1) { // No more photos
+                    break;
+                }
+                await sleep(0.3 + Math.random());
                 nextPhoto();
             }
             console.log(allPhotos.size);
@@ -122,7 +125,7 @@ async function swipeLoop() {
                 swipe('pass');
             }
         }
-        await psleep(0.5 + Math.random());
+        await sleep(0.5 + Math.random());
     }
 }
 
