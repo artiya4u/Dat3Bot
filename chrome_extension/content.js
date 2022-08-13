@@ -30,7 +30,7 @@ function swipe(action) {
 
     // If popup
     setTimeout(function () {
-        let bntsPopup = document.querySelectorAll('span.Hidden');
+        let bntsPopup = document.querySelectorAll('button.button');
         if (bntsPopup.length > 5) {
             // Close Popup -- No, Thanks
             bntsPopup[bntsPopup.length - 1].click();
