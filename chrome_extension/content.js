@@ -111,7 +111,7 @@ async function swipeLoop() {
                     for (const photo of photos) {
                         allPhotos.add(photo);
                     }
-                    if (i > 3 && (i - allPhotos.size) >= 1) { // No more photos
+                    if ((i - allPhotos.size) >= 0) { // No more photos
                         break;
                     }
                     await sleep(0.3 + Math.random());
